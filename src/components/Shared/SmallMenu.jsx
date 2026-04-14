@@ -19,7 +19,7 @@ const SmallMenu = () => {
       </div>
       <div>
         <div
-          className={`px-5 py-5 absolute bg-linear-to-r from-[#1F2937] to-[#244D3F] w-full transition-all duration-300 ease-in-out ${open ? "top-19 left-0" : "top-19 -left-200 "}`}
+          className={`px-5 py-5 absolute bg-linear-to-r from-[#1F2937] to-[#244D3F] w-full transition-all duration-300 ease-in-out ${open ? "top-17 left-0" : "top-17 -left-200 "}`}
         >
           <ul className="text-white font-semibold space-y-3">
             <li

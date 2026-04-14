@@ -1,14 +1,12 @@
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
 import MyContainer from "./MyContainer";
 import SmallMenu from "./SmallMenu";
-import { IoMdHome } from "react-icons/io";
 import NavLinks from "./NavLinks";
 const Navbar = () => {
   return (
     <div className="border-b-2 border-[#E9E9E9]">
       <MyContainer>
-        <div className="py-5 flex sm:gap-5 items-center justify-between">
+        <div className="py-4 flex sm:gap-5 items-center justify-between">
           {/* Left side */}
           <div className="flex gap-2 items-center">
             <SmallMenu />
