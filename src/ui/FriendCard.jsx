@@ -4,7 +4,7 @@ import React from "react";
 const FriendCard = ({ friend }) => {
   console.log(friend.status);
   return (
-    <div className="text-center bg-white rounded-lg p-6 shadow hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out">
+    <div className="text-center bg-white rounded-lg p-6 shadow hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out cursor-pointer">
       <Image
         className="mx-auto rounded-full h-20 w-20"
         src={friend.picture}
@@ -27,7 +27,9 @@ const FriendCard = ({ friend }) => {
           </div>
         ))}
       </div>
-      <p className="text-white bg-[#EF4444] px-2 py-1.5 text-[12px] font-medium rounded-full inline-block mt-3.5 capitalize">
+      <p
+        className={`text-white  px-2 py-1.5 text-[12px] font-medium rounded-full inline-block mt-3.5 capitalize ${friend.status === "Overdue" ? "bg-[#EF4444]" : friend.status === "Almost Due" ? "bg-[#EFAD44]" : "bg-[#244D3F]"}`}
+      >
         {friend.status}
       </p>
     </div>
