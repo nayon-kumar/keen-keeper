@@ -5,8 +5,8 @@ import { LuPlus } from "react-icons/lu";
 const Banner = () => {
   return (
     <MyContainer>
-      <div className="text-center mt-20">
-        <h2 className="font-bold text-3xl md:text-4xl">
+      <div className="text-center pt-20">
+        <h2 className="font-bold text-3xl md:text-4xl text-[#1F2937] ">
           Friends to keep close in your life
         </h2>
         <p className="text-[#64748B] mt-4 mb-8">
