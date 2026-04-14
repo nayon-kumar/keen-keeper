@@ -1,6 +1,6 @@
 import Banner from "@/components/Home/Banner";
+import Friends from "@/components/Home/Friends";
 import Status from "@/components/Home/Status";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -8,6 +8,7 @@ export default function Home() {
       <main className="bg-[#F8FAFC]">
         <Banner />
         <Status />
+        <Friends />
       </main>
     </div>
   );
