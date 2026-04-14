@@ -8,7 +8,7 @@ const SmallMenu = () => {
   const pathName = usePathname();
   const [open, setOpen] = useState(false);
   return (
-    <div className="flex md:hidden">
+    <div className="flex sm:hidden">
       <div
         onClick={() => setOpen(!open)}
         className={`transition-transform duration-300 ${
@@ -19,7 +19,7 @@ const SmallMenu = () => {
       </div>
       <div>
         <div
-          className={`px-5 py-5 absolute bg-linear-to-r from-[#632EE3] to-[#9F62F2] w-full transition-all duration-300 ease-in-out ${open ? "top-20.5 left-0" : "top-20.5 -left-200 "}`}
+          className={`px-5 py-5 absolute bg-linear-to-r from-[#1F2937] to-[#244D3F] w-full transition-all duration-300 ease-in-out ${open ? "top-19 left-0" : "top-19 -left-200 "}`}
         >
           <ul className="text-white font-semibold space-y-3">
             <li
@@ -30,15 +30,15 @@ const SmallMenu = () => {
             </li>
             <li
               onClick={() => setOpen(false)}
-              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/apps" ? "bg-gray-300" : ""}`}
+              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/timeline" ? "bg-gray-300" : ""}`}
             >
-              <Link href="/apps">Apps</Link>
+              <Link href="/timeline">Timeline</Link>
             </li>
             <li
               onClick={() => setOpen(false)}
-              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/installation" ? "bg-gray-300" : ""}`}
+              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/stats" ? "bg-gray-300" : ""}`}
             >
-              <Link href="/installation">Installation</Link>
+              <Link href="/stats">Stats</Link>
             </li>
           </ul>
         </div>

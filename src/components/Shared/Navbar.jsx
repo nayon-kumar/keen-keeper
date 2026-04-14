@@ -20,7 +20,7 @@ const Navbar = () => {
             </Link>
           </div>
           {/* Right side */}
-          <div className="">
+          <div className="hidden sm:flex">
             <NavLinks />
           </div>
         </div>
