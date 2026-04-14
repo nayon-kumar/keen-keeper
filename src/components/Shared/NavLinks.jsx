@@ -2,35 +2,34 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { IoMdHome, IoMdTime } from "react-icons/io";
+import { TfiStatsUp } from "react-icons/tfi";
 
 const NavLinks = () => {
   const pathName = usePathname();
   return (
     <>
-      <li>
-        <Link
-          href="/"
-          className={`${pathName === "/" ? "bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-transparent bg-clip-text underline underline-offset-8 decoration-[#632EE3]" : ""}`}
-        >
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/apps"
-          className={`${pathName === "/apps" ? "bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-transparent bg-clip-text underline underline-offset-8 decoration-[#632EE3]" : ""}`}
-        >
-          Apps
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/installation"
-          className={`${pathName === "/installation" ? "bg-linear-to-r from-[#632EE3] to-[#9F62F2] text-transparent bg-clip-text underline underline-offset-8 decoration-[#632EE3]" : ""}`}
-        >
-          Installation
-        </Link>
-      </li>
+      <Link
+        href="/"
+        className={` btn border-0  shadow-none ${pathName === "/" ? "bg-[#244D3F] text-white" : "bg-white text-[#64748B]"}`}
+      >
+        <IoMdHome size={20} />
+        Home
+      </Link>
+      <Link
+        href="/timeline"
+        className={` btn border-0  shadow-none ${pathName === "/timeline" ? "bg-[#244D3F] text-white" : "bg-white text-[#64748B]"}`}
+      >
+        <IoMdTime size={20} />
+        Timeline
+      </Link>
+      <Link
+        href="/stats"
+        className={` btn border-0  shadow-none ${pathName === "/stats" ? "bg-[#244D3F] text-white" : "bg-white text-[#64748B]"}`}
+      >
+        <TfiStatsUp size={20} />
+        Stats
+      </Link>
     </>
   );
 };
