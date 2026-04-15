@@ -19,13 +19,14 @@ const TimelinePage = () => {
             <>
               <div className="my-6">
                 <select
-                  defaultValue="Server location"
-                  className="select select-neutral w-full sm:w-[300px]"
+                  defaultValue="Filter timeline"
+                  className="select select-neutral w-full sm:w-75"
                 >
                   <option disabled={true}>Filter timeline</option>
-                  <option>North America</option>
-                  <option>EU west</option>
-                  <option>South East Asia</option>
+                  <option>Default</option>
+                  <option>Text</option>
+                  <option>Call</option>
+                  <option>Video</option>
                 </select>
               </div>
               <div className="flex flex-col gap-6">

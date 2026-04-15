@@ -22,24 +22,27 @@ const SmallMenu = () => {
           className={`px-5 py-5 absolute bg-linear-to-r from-[#1F2937] to-[#244D3F] w-full transition-all duration-300 ease-in-out ${open ? "top-16 left-0" : "top-16 -left-200 "}`}
         >
           <ul className="text-white font-semibold space-y-3">
-            <li
+            <Link
+              href="/"
               onClick={() => setOpen(false)}
-              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/" ? "bg-gray-300" : ""}`}
+              className={`block bg-black px-5 py-2 rounded-lg ${pathName === "/" ? "bg-gray-300" : ""}`}
             >
-              <Link href="/">Home</Link>
-            </li>
-            <li
+              Home
+            </Link>
+            <Link
+              href="/timeline"
               onClick={() => setOpen(false)}
-              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/timeline" ? "bg-gray-300" : ""}`}
+              className={`block bg-black px-5 py-2 rounded-lg ${pathName === "/timeline" ? "bg-gray-300" : ""}`}
             >
-              <Link href="/timeline">Timeline</Link>
-            </li>
-            <li
+              Timeline
+            </Link>
+            <Link
+              href="/stats"
               onClick={() => setOpen(false)}
-              className={`bg-black px-5 py-2 rounded-lg ${pathName === "/stats" ? "bg-gray-300" : ""}`}
+              className={`block bg-black px-5 py-2 rounded-lg ${pathName === "/stats" ? "bg-gray-300" : ""}`}
             >
-              <Link href="/stats">Stats</Link>
-            </li>
+              Stats
+            </Link>
           </ul>
         </div>
       </div>
