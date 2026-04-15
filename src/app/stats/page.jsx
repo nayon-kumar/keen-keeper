@@ -6,13 +6,25 @@ import React, { useContext } from "react";
 import { Legend, Pie, PieChart, Tooltip } from "recharts";
 
 const StatsPage = () => {
-  const data = [
-    { name: "Text", value: 300, fill: "#FFBB28" },
-    { name: "Call", value: 200, fill: "#FF8042" },
-    { name: "Video", value: 400, fill: "#0088FE" },
-  ];
   const { timelines } = useContext(MyContext);
-  console.log(timelines);
+  let text = 0;
+  let call = 0;
+  let video = 0;
+  for (const timeline of timelines) {
+    if (timeline.type === "text") {
+      text++;
+    } else if (timeline.type === "call") {
+      call++;
+    } else {
+      video++;
+    }
+  }
+  const data = [
+    { name: "Text", value: text, fill: "#FFBB28" },
+    { name: "Call", value: call, fill: "#FF8042" },
+    { name: "Video", value: video, fill: "#0088FE" },
+  ];
+
   return (
     <div className="bg-[#F8FAFC] pt-32 pb-20">
       <MyContainer>

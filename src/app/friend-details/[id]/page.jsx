@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { use, useContext } from "react";
 import { IoMdVideocam } from "react-icons/io";
 import { LuMessageSquareText, LuPhoneCall } from "react-icons/lu";
+import { toast } from "react-toastify";
 
 const friendsPromise = fetch("http://localhost:3000/friends.json").then((res) =>
   res.json(),
@@ -15,6 +16,9 @@ const FriendId = ({ params }) => {
   const { timelines, setTimelines } = useContext(MyContext);
 
   const handleClick = (newContext, type) => {
+    toast.success(
+      `${type === "text" ? "Text" : type === "call" ? "Call" : "Video"} with ${newContext.name}`,
+    );
     setTimelines([...timelines, { ...newContext, type }]);
   };
 
