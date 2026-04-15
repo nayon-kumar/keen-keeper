@@ -1,6 +1,6 @@
 import React from "react";
-import { IoMdVideocam } from "react-icons/io";
-import { LuMessageSquareText, LuPhoneCall } from "react-icons/lu";
+import { IoIosCall, IoMdVideocam } from "react-icons/io";
+import { LuMessageCircleMore } from "react-icons/lu";
 
 const TimelineCard = ({ timeline }) => {
   return (
@@ -9,9 +9,9 @@ const TimelineCard = ({ timeline }) => {
         {timeline.type === "video" ? (
           <IoMdVideocam size={40} />
         ) : timeline.type === "call" ? (
-          <LuPhoneCall size={40} />
+          <IoIosCall size={40} />
         ) : (
-          <LuMessageSquareText size={40} />
+          <LuMessageCircleMore size={40} />
         )}
       </div>
       <div>
