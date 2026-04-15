@@ -25,7 +25,7 @@ const TimelineCard = ({ timeline }) => {
           </span>
           <span className="text-[#64748B] text-lg"> with {timeline.name}</span>
         </p>
-        <p className="font-medium text-[#64748B] mt-1">March 26, 2026</p>
+        <p className="font-medium text-[#64748B] mt-1">{timeline.date}</p>
       </div>
     </div>
   );

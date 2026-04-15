@@ -14,12 +14,18 @@ const friendsPromise = fetch("http://localhost:3000/friends.json").then((res) =>
 
 const FriendId = ({ params }) => {
   const { timelines, setTimelines } = useContext(MyContext);
-
-  const handleClick = (newContext, type) => {
+  const date = new Date();
+  const formattedDate = date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const handleClick = (newContext, type, date = formattedDate) => {
     toast.success(
       `${type === "text" ? "Text" : type === "call" ? "Call" : "Video"} with ${newContext.name}`,
+      { position: "top-center" },
     );
-    setTimelines([...timelines, { ...newContext, type }]);
+    setTimelines([...timelines, { ...newContext, type, date }]);
   };
 
   const { id } = useParams(params);
