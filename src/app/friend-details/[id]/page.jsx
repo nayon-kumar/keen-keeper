@@ -1,8 +1,9 @@
 "use client";
 import MyContainer from "@/components/Shared/MyContainer";
+import { MyContext } from "@/context/TimelineContext";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import { use } from "react";
+import { use, useContext } from "react";
 import { IoMdVideocam } from "react-icons/io";
 import { LuMessageSquareText, LuPhoneCall } from "react-icons/lu";
 
@@ -11,13 +12,17 @@ const friendsPromise = fetch("http://localhost:3000/friends.json").then((res) =>
 );
 
 const FriendId = ({ params }) => {
+  const { timelines, setTimelines } = useContext(MyContext);
+
+  const handleClick = (newContext, type) => {
+    setTimelines([...timelines, { ...newContext, type }]);
+  };
+
   const { id } = useParams(params);
   const friends = use(friendsPromise);
 
   const expectedFriend = friends.find((friend) => String(friend.id) === id);
-  console.log(expectedFriend);
 
-  console.log(id);
   return (
     <div className="pt-36 pb-20 bg-[#F8FAFC]">
       <MyContainer>
@@ -109,15 +114,24 @@ const FriendId = ({ params }) => {
                 Quick Check-In
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
-                <div className="bg-[#F8FAFC] rounded-lg flex flex-col items-center justify-center p-4 border-2 border-[#E9E9E9] cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                <div
+                  onClick={() => handleClick(expectedFriend, "call")}
+                  className="bg-[#F8FAFC] rounded-lg flex flex-col items-center justify-center p-4 border-2 border-[#E9E9E9] cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                >
                   <LuPhoneCall size={30} />
                   <p className="text-lg text-[#1F2937] mt-2">Call</p>
                 </div>
-                <div className="bg-[#F8FAFC] rounded-lg flex flex-col items-center justify-center p-4 border-2 border-[#E9E9E9] cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                <div
+                  onClick={() => handleClick(expectedFriend, "text")}
+                  className="bg-[#F8FAFC] rounded-lg flex flex-col items-center justify-center p-4 border-2 border-[#E9E9E9] cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                >
                   <LuMessageSquareText size={30} />
                   <p className="text-lg text-[#1F2937] mt-2">Text</p>
                 </div>
-                <div className="bg-[#F8FAFC] rounded-lg flex flex-col items-center justify-center p-4 border-2 border-[#E9E9E9] cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                <div
+                  onClick={() => handleClick(expectedFriend, "video")}
+                  className="bg-[#F8FAFC] rounded-lg flex flex-col items-center justify-center p-4 border-2 border-[#E9E9E9] cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out"
+                >
                   <IoMdVideocam size={30} />
                   <p className="text-lg text-[#1F2937] mt-2">Video</p>
                 </div>
