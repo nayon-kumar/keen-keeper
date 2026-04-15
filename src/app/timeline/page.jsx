@@ -15,7 +15,17 @@ const TimelinePage = () => {
           </h3>
           {timelines.length > 0 ? (
             <>
-              <div>Filter timeline</div>
+              <div>
+                <select
+                  defaultValue="Server location"
+                  className="select select-neutral"
+                >
+                  <option disabled={true}>Server location</option>
+                  <option>North America</option>
+                  <option>EU west</option>
+                  <option>South East Asia</option>
+                </select>
+              </div>
               <div className="flex flex-col gap-6">
                 {timelines.map((timeline, index) => (
                   <TimelineCard key={index} timeline={timeline} />
