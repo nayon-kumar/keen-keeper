@@ -1,10 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FriendCard = ({ friend }) => {
-  console.log(friend.status);
   return (
-    <div className="text-center bg-white rounded-lg p-6 shadow hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out cursor-pointer">
+    <Link
+      href={`/friend-details/${friend.id}`}
+      className="text-center bg-white rounded-lg p-6 shadow hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-in-out cursor-pointer"
+    >
       <Image
         className="mx-auto rounded-full h-20 w-20"
         src={friend.picture}
@@ -32,7 +35,7 @@ const FriendCard = ({ friend }) => {
       >
         {friend.status}
       </p>
-    </div>
+    </Link>
   );
 };
 
