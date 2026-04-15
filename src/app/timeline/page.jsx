@@ -1,8 +1,10 @@
 "use client";
 import MyContainer from "@/components/Shared/MyContainer";
+import NoData from "@/components/Shared/NoData";
 import { MyContext } from "@/context/TimelineContext";
 import TimelineCard from "@/ui/TimelineCard";
 import React, { useContext } from "react";
+import { CiFileOn } from "react-icons/ci";
 
 const TimelinePage = () => {
   const { timelines } = useContext(MyContext);
@@ -15,12 +17,12 @@ const TimelinePage = () => {
           </h3>
           {timelines.length > 0 ? (
             <>
-              <div>
+              <div className="my-6">
                 <select
                   defaultValue="Server location"
-                  className="select select-neutral"
+                  className="select select-neutral w-full sm:w-[300px]"
                 >
-                  <option disabled={true}>Server location</option>
+                  <option disabled={true}>Filter timeline</option>
                   <option>North America</option>
                   <option>EU west</option>
                   <option>South East Asia</option>
@@ -34,7 +36,7 @@ const TimelinePage = () => {
             </>
           ) : (
             <>
-              <p>Not data found</p>
+              <NoData />
             </>
           )}
         </div>

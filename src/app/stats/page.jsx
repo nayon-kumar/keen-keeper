@@ -1,5 +1,6 @@
 "use client";
 import MyContainer from "@/components/Shared/MyContainer";
+import NoData from "@/components/Shared/NoData";
 import { MyContext } from "@/context/TimelineContext";
 import React, { useContext } from "react";
 
@@ -18,7 +19,7 @@ const StatsPage = () => {
           </>
         ) : (
           <>
-            <p>No data found</p>
+            <NoData />
           </>
         )}
       </MyContainer>
