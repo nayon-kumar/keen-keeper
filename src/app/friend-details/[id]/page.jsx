@@ -5,7 +5,8 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { use, useContext } from "react";
 import { IoMdVideocam } from "react-icons/io";
-import { LuMessageSquareText, LuPhoneCall } from "react-icons/lu";
+import { LuArchive, LuMessageSquareText, LuPhoneCall } from "react-icons/lu";
+import { RiDeleteBinLine, RiNotificationSnoozeLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 
 const friendsPromise = fetch("http://localhost:3000/friends.json").then((res) =>
@@ -73,13 +74,22 @@ const FriendId = ({ params }) => {
             </div>
             <div className="flex flex-col text-center mt-4 space-y-2 font-medium">
               <div className="border-[#E9E9E9] border-2 bg-white py-3 text-[#1F2937] rounded-sm hover:shadow-sm cursor-pointer">
-                <p>Snooze 2 weeks</p>
+                <p className="flex items-center justify-center gap-2">
+                  <RiNotificationSnoozeLine size={20} />
+                  Snooze 2 Weeks
+                </p>
               </div>
               <div className="border-[#E9E9E9] border-2 bg-white py-3 text-[#1F2937] rounded-sm hover:shadow-sm cursor-pointer">
-                <p>Archive</p>
+                <p className="flex items-center justify-center gap-2">
+                  <LuArchive size={20} />
+                  Archive
+                </p>
               </div>
               <div className="border-[#E9E9E9] border-2 bg-white py-3 text-[#EF4444] rounded-sm hover:shadow-sm cursor-pointer">
-                <p>Delete</p>
+                <p className="flex items-center justify-center gap-2">
+                  <RiDeleteBinLine size={20} />
+                  Delete
+                </p>
               </div>
             </div>
           </div>
