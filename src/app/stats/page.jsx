@@ -42,7 +42,7 @@ const StatsPage = () => {
                   style={{
                     width: "100%",
                     maxWidth: "500px",
-                    maxHeight: "70vh",
+                    maxHeight: "60vh",
                     aspectRatio: 1,
                   }}
                   responsive
