@@ -10,7 +10,7 @@ import { RiDeleteBinLine, RiNotificationSnoozeLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 
 const friendsPromise = fetch(
-  "https://keen-keeper-khaki-pi.vercel.app/friends.json",
+  "https://keen-keeper-eight-sigma.vercel.app/friends.json",
   {
     cache: "no-store",
   },

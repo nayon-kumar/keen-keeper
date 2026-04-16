@@ -2,16 +2,14 @@
 import React, { use, useContext } from "react";
 import MyContainer from "../Shared/MyContainer";
 import { MyContext } from "@/context/TimelineContext";
-import data from "@/../public/friends.json";
 
-// const friendsPromise = fetch("http://localhost:3000/friends.json").then((res) =>
-//   res.json(),
-// );
+const friendsPromise = fetch(
+  "https://keen-keeper-eight-sigma.vercel.app/friends.json",
+).then((res) => res.json());
 
 const Status = () => {
   const { timelines } = useContext(MyContext);
-  // const friends = use(friendsPromise);
-  const friends = data;
+  const friends = use(friendsPromise);
   let onTrack = 0;
   let overdue = 0;
   for (const friend of friends) {
