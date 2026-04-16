@@ -3,11 +3,19 @@ import MyContainer from "@/components/Shared/MyContainer";
 import NoData from "@/components/Shared/NoData";
 import { MyContext } from "@/context/TimelineContext";
 import TimelineCard from "@/ui/TimelineCard";
-import React, { useContext } from "react";
-import { CiFileOn } from "react-icons/ci";
+import React, { useContext, useState } from "react";
 
 const TimelinePage = () => {
   const { timelines } = useContext(MyContext);
+  const [filterType, setFilterType] = useState("");
+  const [filteredTimelines, setFilteredTimelines] = useState([]);
+  if (filterType === "text") {
+    const allTimelines = { ...timelines };
+    // const expectedTimelines = allTimelines.filter(
+    //   (timeline) => timeline.type === "text",
+    // );
+    // console.log(expectedTimelines);
+  }
   return (
     <div className="bg-[#F8FAFC] pt-32 pb-20">
       <MyContainer>
@@ -22,11 +30,11 @@ const TimelinePage = () => {
                   defaultValue="Filter timeline"
                   className="select select-neutral w-full sm:w-75"
                 >
-                  <option disabled={true}>Filter timeline</option>
-                  <option>Default</option>
-                  <option>Text</option>
-                  <option>Call</option>
-                  <option>Video</option>
+                  <option disabled={true}>Filter Timeline</option>
+                  <option onClick={() => setFilterType("")}>Default</option>
+                  <option onClick={() => setFilterType("text")}>Text</option>
+                  <option onClick={() => setFilterType("call")}>Call</option>
+                  <option onClick={() => setFilterType("video")}>Video</option>
                 </select>
               </div>
               <div className="flex flex-col gap-6">
