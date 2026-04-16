@@ -1,13 +1,15 @@
 import { use } from "react";
 import MyContainer from "../Shared/MyContainer";
 import FriendCard from "@/ui/FriendCard";
+import data from "@/../public/friends.json";
 
-const friendsPromise = fetch("http://localhost:3000/friends.json", {
-  cache: "no-store",
-}).then((res) => res.json());
+// const friendsPromise = fetch("http://localhost:3000/friends.json", {
+//   cache: "no-store",
+// }).then((res) => res.json());
 
 const Friends = () => {
-  const friends = use(friendsPromise);
+  // const friends = use(friendsPromise);
+  const friends = data;
 
   return (
     <MyContainer>
