@@ -9,9 +9,9 @@ import { LuArchive, LuMessageSquareText, LuPhoneCall } from "react-icons/lu";
 import { RiDeleteBinLine, RiNotificationSnoozeLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 
-const friendsPromise = fetch("http://localhost:3000/friends.json").then((res) =>
-  res.json(),
-);
+const friendsPromise = fetch(
+  "https://keen-keeper-khaki-pi.vercel.app/friends.json",
+).then((res) => res.json());
 
 const FriendId = ({ params }) => {
   const { timelines, setTimelines } = useContext(MyContext);

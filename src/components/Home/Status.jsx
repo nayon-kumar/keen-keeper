@@ -3,9 +3,12 @@ import React, { use, useContext } from "react";
 import MyContainer from "../Shared/MyContainer";
 import { MyContext } from "@/context/TimelineContext";
 
-const friendsPromise = fetch("http://localhost:3000/friends.json", {
-  cache: "no-store",
-}).then((res) => res.json());
+const friendsPromise = fetch(
+  "https://keen-keeper-khaki-pi.vercel.app/friends.json",
+  {
+    cache: "no-store",
+  },
+).then((res) => res.json());
 
 const Status = () => {
   const { timelines } = useContext(MyContext);
