@@ -8,14 +8,14 @@ import React, { useContext, useState } from "react";
 const TimelinePage = () => {
   const { timelines } = useContext(MyContext);
   const [filterType, setFilterType] = useState("");
-  const [filteredTimelines, setFilteredTimelines] = useState([]);
-  if (filterType === "text") {
-    const allTimelines = { ...timelines };
-    // const expectedTimelines = allTimelines.filter(
-    //   (timeline) => timeline.type === "text",
-    // );
-    // console.log(expectedTimelines);
-  }
+  const allTimelines = [...timelines];
+
+  // Filter the timelines
+  const filteredTimelines =
+    filterType === ""
+      ? allTimelines
+      : allTimelines.filter((timeline) => timeline.type === filterType);
+
   return (
     <div className="bg-[#F8FAFC] pt-32 pb-20">
       <MyContainer>
@@ -27,21 +27,33 @@ const TimelinePage = () => {
             <>
               <div className="my-6">
                 <select
-                  defaultValue="Filter timeline"
+                  defaultValue="Filter Timeline"
                   className="select select-neutral w-full sm:w-75"
                 >
                   <option disabled={true}>Filter Timeline</option>
-                  <option onClick={() => setFilterType("")}>Default</option>
+                  <option onClick={() => setFilterType("")}>All</option>
                   <option onClick={() => setFilterType("text")}>Text</option>
                   <option onClick={() => setFilterType("call")}>Call</option>
                   <option onClick={() => setFilterType("video")}>Video</option>
                 </select>
               </div>
-              <div className="flex flex-col gap-6">
-                {timelines.map((timeline, index) => (
-                  <TimelineCard key={index} timeline={timeline} />
-                ))}
-              </div>
+              {filterType === "" ? (
+                <>
+                  <div className="flex flex-col gap-6">
+                    {timelines.map((timeline, index) => (
+                      <TimelineCard key={index} timeline={timeline} />
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flex flex-col gap-6">
+                    {filteredTimelines.map((timeline, index) => (
+                      <TimelineCard key={index} timeline={timeline} />
+                    ))}
+                  </div>
+                </>
+              )}
             </>
           ) : (
             <>
