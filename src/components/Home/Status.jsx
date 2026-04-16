@@ -3,7 +3,9 @@ import React, { use, useContext } from "react";
 import MyContainer from "../Shared/MyContainer";
 import { MyContext } from "@/context/TimelineContext";
 
-const friendsPromise = fetch("/friends.json").then((res) => res.json());
+const friendsPromise = fetch("http://localhost:3000/friends.json", {
+  cache: "no-store",
+}).then((res) => res.json());
 
 const Status = () => {
   const { timelines } = useContext(MyContext);

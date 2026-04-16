@@ -2,7 +2,9 @@ import { use } from "react";
 import MyContainer from "../Shared/MyContainer";
 import FriendCard from "@/ui/FriendCard";
 
-const friendsPromise = fetch("/friends.json").then((res) => res.json());
+const friendsPromise = fetch("http://localhost:3000/friends.json", {
+  cache: "no-store",
+}).then((res) => res.json());
 
 const Friends = () => {
   const friends = use(friendsPromise);
