@@ -45,13 +45,17 @@ const TimelinePage = () => {
                     ))}
                   </div>
                 </>
-              ) : (
+              ) : filteredTimelines.length > 0 ? (
                 <>
                   <div className="flex flex-col gap-6">
                     {filteredTimelines.map((timeline, index) => (
                       <TimelineCard key={index} timeline={timeline} />
                     ))}
                   </div>
+                </>
+              ) : (
+                <>
+                  <NoData />
                 </>
               )}
             </>
