@@ -2,15 +2,16 @@ import React from "react";
 import MyContainer from "./MyContainer";
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Link from "next/link";
 
 const Footer = () => {
   return (
     <div className="bg-[#244D3F] pt-20 pb-7.5">
       <MyContainer>
         <div className="text-center text-white ">
-          <h2 className="text-white font-bold text-3xl md:text-5xl">
+          <Link href="/" className="text-white font-bold text-3xl md:text-5xl">
             KeenKeeper
-          </h2>
+          </Link>
           <p className="mt-4 mb-6 text-white/80">
             Your personal shelf of meaningful connections. Browse, tend, and
             nurture the relationships that matter most.

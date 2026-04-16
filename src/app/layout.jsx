@@ -11,7 +11,7 @@ const geistSans = Geist({
 });
 
 export const metadata = {
-  title: "KeenKeeper - Home",
+  title: "KeenKeeper",
   description: "KeenKeeper - Keep Your Friendships Alive",
 };
 
