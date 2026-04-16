@@ -11,6 +11,9 @@ import { toast } from "react-toastify";
 
 const friendsPromise = fetch(
   "https://keen-keeper-khaki-pi.vercel.app/friends.json",
+  {
+    cache: "no-store",
+  },
 ).then((res) => res.json());
 
 const FriendId = ({ params }) => {
